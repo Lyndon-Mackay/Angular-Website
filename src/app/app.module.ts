@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { GeneralsComponent } from './generals/generals.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GeneralsComponent
   ],
   imports: [
     BrowserModule
