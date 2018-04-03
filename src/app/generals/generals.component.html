@@ -1,5 +1,10 @@
+<h2>Generals</h2>
 <ul class="generals">
-  <li *ngFor="let general of generals">
-    <span class="badge">{{general.Name}}</span> {{general.Country}}
+  <li *ngFor="let general of generals"
+    [class.selected]="general === selectedGeneral"
+    (click)="onSelect(general)">
+    <span class="badge">{{general.Name}}</span> <span>of</span> {{general.Country}}
   </li>
 </ul>
+
+<app-general-detail [general]="selectedGeneral"></app-general-detail>

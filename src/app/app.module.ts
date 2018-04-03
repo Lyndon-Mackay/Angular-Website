@@ -6,12 +6,15 @@ import { AppComponent } from './app.component';
 import { GeneralsComponent } from './generals/generals.component';
 import { GeneralService } from './general.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
+import { GeneralDetailComponent } from './general-detail/general-detail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    GeneralsComponent
+    GeneralsComponent,
+    GeneralDetailComponent
   ],
   imports: [
     BrowserModule,
