@@ -1,7 +1,7 @@
 export class General
 {
-    name:string;
-    country:string;
-    comment:string;
-    link:string;
+    Name:string;
+    Country:string;
+    Comment:string;
+    Link:string;
 }

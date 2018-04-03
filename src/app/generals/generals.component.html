@@ -1,3 +1,5 @@
-<p>
-  generals works!
-</p>
+<ul class="generals">
+  <li *ngFor="let general of generals">
+    <span class="badge">{{general.Name}}</span> {{general.Country}}
+  </li>
+</ul>

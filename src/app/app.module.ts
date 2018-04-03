@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { GeneralsComponent } from './generals/generals.component';
 import { GeneralService } from './general.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { GeneralService } from './general.service';
     GeneralsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [GeneralService],
   bootstrap: [AppComponent]
