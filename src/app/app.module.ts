@@ -8,6 +8,7 @@ import { GeneralService } from './general.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { GeneralDetailComponent } from './general-detail/general-detail.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { GeneralDetailComponent } from './general-detail/general-detail.componen
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
   ],
   providers: [GeneralService],
   bootstrap: [AppComponent]
