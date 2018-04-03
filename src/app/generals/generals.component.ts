@@ -8,6 +8,7 @@ import { GeneralService } from '../general.service';
 })
 export class GeneralsComponent implements OnInit {
 
+
   constructor(private generalService:GeneralService) { }
 
   ngOnInit() {

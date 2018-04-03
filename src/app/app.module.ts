@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { GeneralsComponent } from './generals/generals.component';
+import { GeneralService } from './general.service';
 
 
 @NgModule({
@@ -14,7 +15,7 @@ import { GeneralsComponent } from './generals/generals.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [GeneralService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

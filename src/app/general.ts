@@ -1,4 +1,4 @@
-export class general
+export class General
 {
     name:string;
     country:string;
