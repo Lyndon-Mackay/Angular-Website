@@ -10,16 +10,13 @@ import { General } from '../general';
 export class GeneralsComponent implements OnInit {
 
   generals:General[];
-  selectedGeneral:General;
   constructor(private generalService:GeneralService) { }
 
   ngOnInit() {
     this.getGenerals();
   }
-  onSelect(general: General): void {
-    this.selectedGeneral = general;
-  }
  
+
   getGenerals(): void {
     this.generalService.getGenerals()
         .subscribe(generals => this.generals = generals);
