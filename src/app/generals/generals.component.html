@@ -2,7 +2,9 @@
 <ul class="generals">
   <li *ngFor="let general of generals">
       <a routerLink="/detail/{{general.Name}}">
-        <span class="badge">{{general.Name}}</span> of  {{general.Country}}
+        <span class="badge">{{general.Name}}</span>
       </a>
+      <span>of</span>
+      <a routerLink="/country/{{general.Country}}">{{general.Country}}</a>
   </li>
 </ul>

@@ -9,13 +9,16 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { GeneralDetailComponent } from './general-detail/general-detail.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { CountryComponent } from './country/country.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     GeneralsComponent,
-    GeneralDetailComponent
+    GeneralDetailComponent,
+    CountryComponent,
+
   ],
   imports: [
     BrowserModule,

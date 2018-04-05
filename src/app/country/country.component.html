@@ -1,0 +1,11 @@
+<div>
+  <h3>This is contains the list of generals from the country of {{country}}</h3>
+    <ul class="generals">
+        <li *ngFor="let general of generals">
+            <a routerLink="/detail/{{general.Name}}">
+            {{general.Name}}
+            </a>
+            <p>{{general.Comments}}</p>
+        </li>
+      </ul>
+</div>

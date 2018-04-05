@@ -1,13 +1,14 @@
 export enum requestid
 {
- getSpecificID
+ getSpecificID,
+ getCountry
 }
 export class request{
   requestid:requestid;
-  general:string;
-  constructor (requestid,general)
+  attributeValue:string;
+  constructor (requestid,attributeValue)
   {
     this.requestid = requestid;
-    this.general = general;
+    this.attributeValue = attributeValue;
   }
 }

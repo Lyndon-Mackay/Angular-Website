@@ -14,6 +14,12 @@ export class GeneralService {
   };
   constructor(private http: HttpClient) { }
 
+  getbyCountry(country:string):Observable<General[]>
+  {
+    let nrequest = new request(requestid.getCountry,country);
+    return this.http.post<General[]>(this.generalsURL,nrequest,this.httpOptions)
+    .pipe( catchError(this.handleError<General[]>(`getbyCountry id=${country}`)));
+  }
   getGeneral(name:string):Observable<General>
   {
     let nrequest = new request(requestid.getSpecificID,name);
