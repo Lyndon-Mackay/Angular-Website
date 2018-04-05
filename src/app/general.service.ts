@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
+import { request , requestid } from './requests';
 
 @Injectable()
 export class GeneralService {
@@ -35,18 +36,5 @@ export class GeneralService {
   getGenerals():Observable<General[]>
   {
     return this.http.get<General[]>(this.generalsURL);
-  }
-}
-enum requestid
-{
- getSpecificID
-}
- class request{
-  requestid:requestid;
-  general:string;
-  constructor (requestid,general)
-  {
-    this.requestid = requestid;
-    this.general = general;
   }
 }
