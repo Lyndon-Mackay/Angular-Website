@@ -1,0 +1,11 @@
+<div>
+  <ul>
+    <li  *ngFor="let t of dates">
+      {{t.time}}
+      </li>
+  </ul>
+  <p>Click add to send a timestamp to an sql database</p>
+    <button (click)="add();">
+        add time
+      </button>
+  </div>

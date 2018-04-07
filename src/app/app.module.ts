@@ -10,6 +10,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { GeneralDetailComponent } from './general-detail/general-detail.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { CountryComponent } from './country/country.component';
+import { DatesComponent } from './dates/dates.component';
+import { DateService } from './date.service';
 
 
 @NgModule({
@@ -18,6 +20,7 @@ import { CountryComponent } from './country/country.component';
     GeneralsComponent,
     GeneralDetailComponent,
     CountryComponent,
+    DatesComponent,
 
   ],
   imports: [
@@ -25,7 +28,7 @@ import { CountryComponent } from './country/country.component';
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [GeneralService],
+  providers: [GeneralService,DateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
