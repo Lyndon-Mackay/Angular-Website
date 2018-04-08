@@ -12,6 +12,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { CountryComponent } from './country/country.component';
 import { DatesComponent } from './dates/dates.component';
 import { DateService } from './date.service';
+import { DateDetailComponent } from './date-detail/date-detail.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { DateService } from './date.service';
     GeneralDetailComponent,
     CountryComponent,
     DatesComponent,
+    DateDetailComponent,
 
   ],
   imports: [

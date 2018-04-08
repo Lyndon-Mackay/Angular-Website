@@ -1,7 +1,7 @@
 <div>
   <ul>
     <li  *ngFor="let t of dates">
-      {{t.time}}
+        <a routerLink= "{{t.ID}}"><span>  ID = {{t.ID}}</span><span> time = {{t.time}}</span></a>
       </li>
   </ul>
   <p>Click add to send a timestamp to an sql database</p>

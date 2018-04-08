@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
+import { customTime } from './customtime';
 @Injectable()
 export class DateService {
 
@@ -11,16 +12,33 @@ export class DateService {
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-  addDate(date :number): Observable<number>
+  addDate(date:number): Observable<customTime>
   {
-    let daterequester = new dateRequestC(date.toString(),dateRequest.add);
+    let daterequester = new dateRequestC([date.toString()],dateRequest.add);
     console.log(JSON.stringify(daterequester));
-    return this.http.post<number>(this.dateURL,daterequester,this.httpOptions).pipe(
-       catchError(this.handleError<number>(`addDate date=${date}`)));
+    return this.http.post<customTime>(this.dateURL,daterequester,this.httpOptions).pipe(
+       catchError(this.handleError<customTime>(`addDate date=${date}`)));
   }
-  getDates():Observable<number[]>
+  deleteDate(id:string):void{
+    let daterequester = new dateRequestC([id],dateRequest.delete);
+    this.http.delete(this.dateURL,)
+  }
+  getDates():Observable<customTime[]>
   {
-    return this.http.get<number[]>(this.dateURL);
+    return this.http.get<customTime[]>(this.dateURL);
+  }
+  getDateByID(id:string):Observable<customTime>
+  {
+    let daterequester = new dateRequestC( [id],dateRequest.getbyID);
+    return this.http.post<customTime>(this.dateURL,daterequester,this.httpOptions).pipe(
+      catchError(this.handleError<customTime>(`getDateByID ID=${id}`)));
+    
+  }
+  updateDate(updatedTime:customTime)
+  {
+    return this.http.put<customTime>(this.dateURL,updatedTime
+      ,this.httpOptions).pipe(
+      catchError(this.handleError<customTime>(`updateDate updatedTime=${updatedTime}`)));
   }
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -37,13 +55,16 @@ export class DateService {
   }
 }
 enum dateRequest {
-  add
+  add,
+  getbyID,
+  updateById,
+  delete
 }
 class dateRequestC {
-  private parameter :string
+  private parameter :string[]
   private dateR:dateRequest
 
-  constructor(parameter:string,dateR:dateRequest)
+  constructor(parameter:string[],dateR:dateRequest)
   {
     this.parameter = parameter;
     this.dateR = dateR;
