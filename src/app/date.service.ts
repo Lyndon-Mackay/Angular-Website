@@ -14,14 +14,17 @@ export class DateService {
   };
   addDate(date:number): Observable<customTime>
   {
-    let daterequester = new dateRequestC([date.toString()],dateRequest.add);
+    let daterequester = new dateRequestC(date.toString(),dateRequest.add);
     console.log(JSON.stringify(daterequester));
     return this.http.post<customTime>(this.dateURL,daterequester,this.httpOptions).pipe(
        catchError(this.handleError<customTime>(`addDate date=${date}`)));
   }
   deleteDate(id:string):void{
-    let daterequester = new dateRequestC([id],dateRequest.delete);
-    this.http.delete(this.dateURL,)
+    const url = `${this.dateURL}/${id}`;
+    let daterequester = new dateRequestC(id,dateRequest.delete);
+    console.log("delete");
+    //hacky becaus ei am not sure how to handle deletes with php
+    this.http.post<customTime>(this.dateURL,daterequester,this.httpOptions).subscribe();
   }
   getDates():Observable<customTime[]>
   {
@@ -29,7 +32,7 @@ export class DateService {
   }
   getDateByID(id:string):Observable<customTime>
   {
-    let daterequester = new dateRequestC( [id],dateRequest.getbyID);
+    let daterequester = new dateRequestC(id,dateRequest.getbyID);
     return this.http.post<customTime>(this.dateURL,daterequester,this.httpOptions).pipe(
       catchError(this.handleError<customTime>(`getDateByID ID=${id}`)));
     
@@ -57,14 +60,14 @@ export class DateService {
 enum dateRequest {
   add,
   getbyID,
-  updateById,
   delete
+
 }
 class dateRequestC {
-  private parameter :string[]
+  private parameter :string
   private dateR:dateRequest
 
-  constructor(parameter:string[],dateR:dateRequest)
+  constructor(parameter:string,dateR:dateRequest)
   {
     this.parameter = parameter;
     this.dateR = dateR;
