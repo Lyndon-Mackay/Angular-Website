@@ -13,6 +13,7 @@ import { CountryComponent } from './country/country.component';
 import { DatesComponent } from './dates/dates.component';
 import { DateService } from './date.service';
 import { DateDetailComponent } from './date-detail/date-detail.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { DateDetailComponent } from './date-detail/date-detail.component';
     CountryComponent,
     DatesComponent,
     DateDetailComponent,
+    AboutComponent,
 
   ],
   imports: [

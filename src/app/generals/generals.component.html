@@ -1,11 +1,15 @@
 <h2>Generals</h2>
-<ul class="generals">
-  <li *ngFor="let general of generals">
-      <a routerLink="/detail/{{general.Name}}">
-        <span class="badge">{{general.Name}}</span>
-      </a>
-      <span>of</span>
-      <a routerLink="/country/{{general.Country}}">{{general.Country}}</a>
-  </li>
-</ul>
+<table>
+  <tr class="table-title">
+    <th>Name</th>
+    <th>Country</th>
+    <th>WikiLink</th>
+  </tr>
+  <tr *ngFor="let general of generals">
+      <th><a routerLink="/detail/{{general.Name}}">{{general.Name}}</a></th>
+      <th><a routerLink="/country/{{general.Country}}">{{general.Country}}</a></th>
+      <th><a href="{{general.Link}}">{{general.Link}}</a></th>
+  </tr>
+</table>
+
 

@@ -8,6 +8,9 @@ a {
 	font-size: 20px;
 	margin: auto 2% auto 2%;
  }
+ p{
+    text-align: center;
+ }
 a:hover {
 	background: azure;
 	color: deepskyblue;
@@ -37,14 +40,27 @@ nav {
 	top: 0px;
 	width: 100%;
  }
- p{
-    text-align: center;
+ table{
+    margin: auto;
+    border-collapse: collapse;
  }
+ td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
 ul{
     list-style: none;
 }
 .center-div{
     text-align: center;
+}
+.text-centred{
+    max-width: 100%;
+    width: 680px;
+}
+.table-title{
+    background-color: lightcyan;
 }
 
 
