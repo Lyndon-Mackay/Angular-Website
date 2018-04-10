@@ -4,17 +4,18 @@
 }
 
 a {
-	color: magenta;
+	color: cornflowerblue;
 	font-size: 20px;
 	margin: auto 2% auto 2%;
+ }
+ a:hover {
+	background: azure;
+	color: orange;
  }
  p{
     text-align: center;
  }
-a:hover {
-	background: azure;
-	color: deepskyblue;
- }
+
 body {
     background-color: azure;
 }
@@ -33,12 +34,15 @@ li {
  }
 
 nav {
-	background-color: lavender;
+	background-color: lightsteelblue;
 	left: 0px;
 	position: fixed;
 	text-align: center;
 	top: 0px;
 	width: 100%;
+ }
+ nav > a{
+    color: rgb(13, 28, 59);
  }
  table{
     margin: auto;

@@ -1,15 +1,13 @@
 <h2>Dates</h2>
 <div>
-  <ul>
-    <li  *ngFor="let t of dates">
-        <a routerLink= "{{t.ID}}"><span>  ID = {{t.ID}}</span>
-          <span> time = {{t.time}}</span></a>
-      </li>
-  </ul>
-  <div class="center-div">
-  <p>Click add to send a timestamp to an sql database</p>
-    <button (click)="add();">
-        add time
-      </button>
-    </div>
+  <table>
+   <tr class="table-title">
+      <th>ID</th>
+      <th>Timestamp</th>
+   </tr>
+   <tr *ngFor="let d of dates">
+    <th><a routerLink= "{{d.ID}}">{{d.ID}}</a></th>
+    <th>{{d.time}}</th>
+   </tr>
+  </table>
   </div>
