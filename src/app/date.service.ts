@@ -15,14 +15,12 @@ export class DateService {
   addDate(date:number): Observable<customTime>
   {
     let daterequester = new dateRequestC(date.toString(),dateRequest.add);
-    console.log(JSON.stringify(daterequester));
     return this.http.post<customTime>(this.dateURL,daterequester,this.httpOptions).pipe(
        catchError(this.handleError<customTime>(`addDate date=${date}`)));
   }
   deleteDate(id:string):void{
     const url = `${this.dateURL}/${id}`;
     let daterequester = new dateRequestC(id,dateRequest.delete);
-    console.log("delete");
     //hacky becaus ei am not sure how to handle deletes with php
     this.http.post<customTime>(this.dateURL,daterequester,this.httpOptions).subscribe();
   }

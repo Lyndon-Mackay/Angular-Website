@@ -35,7 +35,6 @@ export class DateDetailComponent implements OnInit {
   update()
   {
     const id = this.getID();
-    console.log(JSON.stringify(new customTime (id,Date.now())));
     this.dateService.updateDate(new customTime (id,Date.now())).subscribe(() => this.goBack());
 
   }

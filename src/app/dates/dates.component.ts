@@ -19,19 +19,15 @@ export class DatesComponent implements OnInit {
   getDates()
   {
     this.dateService.getDates().subscribe(
-      dates => {this.dates = dates
-        console.log(dates);
-      });
+      dates => this.dates = dates
+      );
   }
   add()
   {
 
     this.dateService.addDate(Date.now()).subscribe(
     date =>
-    { 
-      console.log(date);
       this.dates.push(date)
-    }
   );
 
   }
