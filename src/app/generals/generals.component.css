@@ -1,0 +1,6 @@
+.non-sortable:active{
+    background-color: unset;
+}
+.non-sortable:hover{
+    background-color: unset;
+}

@@ -3,7 +3,7 @@
   <tr class="table-title">
     <th>Name</th>
     <th>Country</th>
-    <th>WikiLink</th>
+    <th class="non-sortable">WikiLink</th>
   </tr>
   <tr *ngFor="let general of generals">
       <th><a routerLink="/detail/{{general.Name}}">{{general.Name}}</a></th>
