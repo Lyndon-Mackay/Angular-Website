@@ -2,8 +2,8 @@
 <div>
   <table>
    <tr class="table-title">
-      <th>ID</th>
-      <th>Timestamp</th>
+      <th (click)= "idClicked()">ID</th>
+      <th (click)= "timeStampClicked()">Timestamp</th>
    </tr>
    <tr *ngFor="let d of dates">
     <th><a routerLink= "{{d.ID}}">{{d.ID}}</a></th>
