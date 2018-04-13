@@ -1,15 +1,22 @@
 <h2>Generals</h2>
-<table>
-  <tr class="table-title">
-    <th>Name</th>
-    <th>Country</th>
-    <th class="non-sortable">WikiLink</th>
-  </tr>
-  <tr *ngFor="let general of generals">
-      <th><a routerLink="/detail/{{general.Name}}">{{general.Name}}</a></th>
-      <th><a routerLink="/country/{{general.Country}}">{{general.Country}}</a></th>
-      <th><a href="{{general.Link}}">{{general.Link}}</a></th>
-  </tr>
-</table>
-
-
+<div>
+  <h5>click on the name title and country title to sort</h5>
+  <table>
+    <tr class="table-title">
+      <th (click)="nameClicked()">Name</th>
+      <th (click)="countryClicked()">Country</th>
+      <th class="non-sortable">WikiLink</th>
+    </tr>
+    <tr *ngFor="let general of generals">
+      <th>
+        <a routerLink="/detail/{{general.Name}}">{{general.Name}}</a>
+      </th>
+      <th>
+        <a routerLink="/country/{{general.Country}}">{{general.Country}}</a>
+      </th>
+      <th>
+        <a href="{{general.Link}}">{{general.Link}}</a>
+      </th>
+    </tr>
+  </table>
+</div>

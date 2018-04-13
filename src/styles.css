@@ -69,7 +69,7 @@ ul{
 .table-title > th:active:not(.non-sortable) {
     background-color: pink;
 }
-.table-title > th:hover {
+.table-title > th:hover:not(.non-sortable) {
     background-color: aliceblue;
 }
 
