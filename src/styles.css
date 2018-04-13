@@ -66,6 +66,9 @@ ul{
 .table-title{
     background-color: lightcyan;
 }
+.table-title > th:active {
+    background-color: pink;
+}
 .table-title > th:hover {
     background-color: aliceblue;
 }
