@@ -10,7 +10,7 @@ import { General } from '../general';
 })
 export class CountryComponent implements OnInit {
 
-  private country;  
+  country;  
   @Input() generals:General[]
   constructor( private route: ActivatedRoute,
     private generalService:GeneralService
