@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {General} from '../general'
+import {General} from '../../general'
 import { ActivatedRoute } from '@angular/router';
-import { GeneralService } from '../general.service';
+import { GeneralService } from '../../Services/general.service';
 @Component({
   selector: 'app-general-detail',
   templateUrl: './general-detail.component.html',

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { customTime } from '../../customtime';
 import { ActivatedRoute } from '@angular/router';
-import { DateService } from '../../date.service';
+import { DateService } from '../../Services/date.service';
 import {Location} from '@angular/common';
 @Component({
   selector: 'app-date-detail',

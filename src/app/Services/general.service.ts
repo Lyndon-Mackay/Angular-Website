@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { General } from './general';
+import { General } from '../general';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
-import { request , requestid } from './requests';
+import { request , requestid } from '../requests';
 
 @Injectable()
 export class GeneralService {

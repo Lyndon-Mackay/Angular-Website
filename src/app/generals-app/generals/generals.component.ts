@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GeneralService } from '../general.service';
-import { General } from '../general';
+import { GeneralService } from '../../Services/general.service';
+import { General } from '../../general';
 
 @Component({
   selector: 'app-generals',

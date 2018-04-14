@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DateService } from '../../date.service';
+import { DateService } from '../../Services/date.service';
 import { customTime } from '../../customtime';
 
 @Component({

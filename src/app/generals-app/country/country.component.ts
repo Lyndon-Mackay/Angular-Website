@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { GeneralService } from '../general.service';
-import { General } from '../general';
+import { GeneralService } from '../../Services/general.service';
+import { General } from '../../general';
 
 @Component({
   selector: 'app-country',
