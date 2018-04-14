@@ -1,5 +1,5 @@
 export function reversableComparitor(a,b,property:string,reverse:boolean):number{
-    if (a[property] === b[property]) {
+    if (a[property] == b[property]) {
         return 0;
       }
       let rValue = 0;
