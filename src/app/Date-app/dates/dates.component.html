@@ -1,6 +1,8 @@
 <h2>Dates</h2>
-<div>
-  <h5> Click on the titles to change the sorting!</h5>
+<div class="center-div">
+  <h5> Click on the titles to change the sorting!
+    Click on an id to change times or delete.
+  </h5>
   <table>
    <tr class="table-title">
       <th (click)= "idClicked()">ID</th>
@@ -11,4 +13,5 @@
     <th>{{d.time}}</th>
    </tr>
   </table>
+  <button (click) = "goToAdd()">add</button>
   </div>

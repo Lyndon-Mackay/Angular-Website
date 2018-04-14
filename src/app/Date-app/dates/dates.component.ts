@@ -25,6 +25,10 @@ export class DatesComponent implements OnInit {
     this.dateService.getDates().subscribe(
       dates => this.dates = dates);
   }
+  goToAdd()
+  {
+    window.location.href += "/add"
+  }
   idClicked(): void {
     this.reverse = !this.reverse;
     this.dates.sort((a, b) =>
