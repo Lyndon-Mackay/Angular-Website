@@ -6,12 +6,14 @@ import { CountryComponent } from './generals-app/country/country.component';
 import { DatesComponent } from './Date-app/dates/dates.component';
 import { DateDetailComponent } from './Date-app/date-detail/date-detail.component';
 import { AboutComponent } from './about/about.component';
+import { DateAddComponent } from './date-app/date-add/date-add.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/about', pathMatch: 'full' },
   { path: 'generals', component: GeneralsComponent },
   { path: 'date', component: DatesComponent },
   { path: 'date/:ID',component:DateDetailComponent},
+  { path: 'date/add',component:DateAddComponent},
   { path: 'detail/:Name', component: GeneralDetailComponent },
   { path: 'country/:Country', component: CountryComponent },
   { path: 'about' , component :AboutComponent}

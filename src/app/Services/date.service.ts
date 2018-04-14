@@ -14,14 +14,20 @@ export class DateService {
   };
   addDate(date:number): Observable<customTime>
   {
-    let daterequester = new dateRequestC(date.toString(),dateRequest.add);
+    let daterequester = new dateRequestC([date.toString()],dateRequest.add);
     return this.http.post<customTime>(this.dateURL,daterequester,this.httpOptions).pipe(
        catchError(this.handleError<customTime>(`addDate date=${date}`)));
   }
+  addDateToID(id:string,date:number)
+  {
+    let daterequester = new dateRequestC([id,date.toString()],dateRequest.addbyID);
+    return this.http.post<customTime>(this.dateURL,daterequester,this.httpOptions).pipe(
+      catchError(this.handleError<customTime>(`addDateToid id=${id}, date=${date}`)));
+  }
   deleteDate(id:string):void{
     const url = `${this.dateURL}/${id}`;
-    let daterequester = new dateRequestC(id,dateRequest.delete);
-    //hacky becaus ei am not sure how to handle deletes with php
+    let daterequester = new dateRequestC([id],dateRequest.delete);
+    //hacky becaus i am not sure how to handle deletes with php
     this.http.post<customTime>(this.dateURL,daterequester,this.httpOptions).subscribe();
   }
   getDates():Observable<customTime[]>
@@ -30,7 +36,7 @@ export class DateService {
   }
   getDateByID(id:string):Observable<customTime>
   {
-    let daterequester = new dateRequestC(id,dateRequest.getbyID);
+    let daterequester = new dateRequestC([id],dateRequest.getbyID);
     return this.http.post<customTime>(this.dateURL,daterequester,this.httpOptions).pipe(
       catchError(this.handleError<customTime>(`getDateByID ID=${id}`)));
     
@@ -58,14 +64,15 @@ export class DateService {
 enum dateRequest {
   add,
   getbyID,
-  delete
+  delete,
+  addbyID
 
 }
 class dateRequestC {
-  private parameter :string
+  private parameter :string[]
   private dateR:dateRequest
 
-  constructor(parameter:string,dateR:dateRequest)
+  constructor(parameter:string[],dateR:dateRequest)
   {
     this.parameter = parameter;
     this.dateR = dateR;

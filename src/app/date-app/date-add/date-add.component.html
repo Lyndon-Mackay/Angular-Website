@@ -1,0 +1,9 @@
+<div>
+  <label>ID:
+    <input #ID />
+  </label>
+  <!-- (click) passes input value to add() -->
+  <button (click)="add(ID.value);">
+    add current timestamp to ID
+  </button>
+</div>
