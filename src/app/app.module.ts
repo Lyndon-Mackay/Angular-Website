@@ -14,6 +14,7 @@ import { DatesComponent } from './Date-app/dates/dates.component';
 import { DateService } from './Services/date.service';
 import { DateDetailComponent } from './Date-app/date-detail/date-detail.component';
 import { AboutComponent } from './about/about.component';
+import { DateAddComponent } from './date-app/date-add/date-add.component';
 
 
 
@@ -26,6 +27,7 @@ import { AboutComponent } from './about/about.component';
     DatesComponent,
     DateDetailComponent,
     AboutComponent,
+    DateAddComponent,
 
   ],
   imports: [
