@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GeneralService } from '../../Services/general.service';
 import { General } from '../../general';
+import { reversableComparitor } from '../../utilitymethods';
 
 @Component({
   selector: 'app-generals',
@@ -19,7 +20,7 @@ export class GeneralsComponent implements OnInit {
   countryClicked():void
   {
     this.reverse = !this.reverse;
-    this.generals.sort((a,b) => this.sort(a,b,"Country",this.reverse));
+    this.generals.sort((a,b) => reversableComparitor(a,b,"Country",this.reverse));
   }
   getGenerals(): void {
     this.generalService.getGenerals()
@@ -27,23 +28,7 @@ export class GeneralsComponent implements OnInit {
   }
   nameClicked():void{
     this.reverse = !this.reverse;
-    this.generals.sort((a,b) => this.sort(a,b,"Name",this.reverse));
+    this.generals.sort((a,b) => reversableComparitor(a,b,"Name",this.reverse));
   }
-  sort(a: General, b: General,property:string, reverse : boolean): number {
 
-    if (a[property] === b[property]) {
-      return 0;
-    }
-    let rValue = 0;
-    if (a[property] > b[property]) {
-      rValue = 1;
-    }
-    else {
-      rValue = -1;
-    }
-    if (this.reverse) {
-      rValue *= -1;
-    }
-    return rValue;
-  }
 }
