@@ -10,9 +10,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { GeneralDetailComponent } from './general-detail/general-detail.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { CountryComponent } from './country/country.component';
-import { DatesComponent } from './dates/dates.component';
+import { DatesComponent } from './Date-app/dates/dates.component';
 import { DateService } from './date.service';
-import { DateDetailComponent } from './date-detail/date-detail.component';
+import { DateDetailComponent } from './Date-app/date-detail/date-detail.component';
 import { AboutComponent } from './about/about.component';
 
 

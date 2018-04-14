@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { GeneralsComponent } from './generals/generals.component';
 import { GeneralDetailComponent } from './general-detail/general-detail.component';
 import { CountryComponent } from './country/country.component';
-import { DatesComponent } from './dates/dates.component';
-import { DateDetailComponent } from './date-detail/date-detail.component';
+import { DatesComponent } from './Date-app/dates/dates.component';
+import { DateDetailComponent } from './Date-app/date-detail/date-detail.component';
 import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [

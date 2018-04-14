@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DateService } from '../date.service';
-import { customTime } from '../customtime';
+import { DateService } from '../../date.service';
+import { customTime } from '../../customtime';
 
 @Component({
   selector: 'app-dates',
