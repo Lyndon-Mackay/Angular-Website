@@ -27,7 +27,6 @@ export class DatesComponent implements OnInit {
   }
   idClicked(): void {
     this.reverse = !this.reverse;
-    console.log(this.reverse);
     this.dates.sort((a, b) =>
       this.sort(a, b,"ID", this.reverse)
     );
