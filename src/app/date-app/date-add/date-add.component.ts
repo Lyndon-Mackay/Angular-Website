@@ -19,6 +19,8 @@ export class DateAddComponent implements OnInit {
     let num = parseInt(id);
     if (isNaN(num)) {
       this.invalid = true;
+      // change input to be red
+      document.getElementById("dateid").style.backgroundColor = "red";
       return;
     }
     let valid = false;
