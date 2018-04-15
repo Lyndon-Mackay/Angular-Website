@@ -21,8 +21,16 @@ export class DateAddComponent implements OnInit {
       this.invalid = true;
       return;
     }
-    this.dateService.addDateToID(id, Date.now()).subscribe();
-
+    let valid = false;
+    this.dateService.addDateToID(id, Date.now()).subscribe(s => valid = s);
+    if (valid)
+    {
+    this.back();
+    }
+    else
+    {
+      this.invalid = true;
+    }
   }
   back()
   {

@@ -35,7 +35,7 @@ export class DateDetailComponent implements OnInit {
   update()
   {
     const id = this.getID();
-    this.dateService.updateDate(new customTime (id,Date.now())).subscribe(() => this.goBack());
+    this.dateService.updateDate(new customTime (+id,Date.now())).subscribe(() => this.goBack());
 
   }
   delete()

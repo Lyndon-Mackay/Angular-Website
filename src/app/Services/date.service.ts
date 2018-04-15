@@ -21,8 +21,8 @@ export class DateService {
   addDateToID(id:string,date:number)
   {
     let daterequester = new dateRequestC([id,date.toString()],dateRequest.addbyID);
-    return this.http.post<customTime>(this.dateURL,daterequester,this.httpOptions).pipe(
-      catchError(this.handleError<customTime>(`addDateToid id=${id}, date=${date}`)));
+    return this.http.post<boolean>(this.dateURL,daterequester,this.httpOptions).pipe(
+      catchError(this.handleError<boolean>(`addDateToid id=${id}, date=${date}`)));
   }
   deleteDate(id:string):void{
     const url = `${this.dateURL}/${id}`;

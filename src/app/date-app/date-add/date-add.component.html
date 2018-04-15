@@ -6,4 +6,9 @@
       <button (click)="add(ID.value);">
           add
         </button>
+        <div *ngIf="invalid">
+            <p class = "error-text">
+                please enter a valid number or an unused id
+            </p>
+        </div>
 </div>

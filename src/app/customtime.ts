@@ -1,7 +1,7 @@
 export class customTime {
-    ID :string;
+    ID :number;
     time:number;
-  constructor(id:string,time:number)
+  constructor(id:number,time:number)
    {
     this.ID = id;
     this.time = time;

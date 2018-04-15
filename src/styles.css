@@ -59,6 +59,9 @@ ul{
 .center-div{
     text-align: center;
 }
+.error-text {
+	color: red;
+}
 .text-centred{
     max-width: 100%;
     width: 680px;
