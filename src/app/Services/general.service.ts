@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { General } from '../general';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders,HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -26,6 +26,11 @@ export class GeneralService {
     return this.http.post<General>(this.generalsURL,nrequest,this.httpOptions)
     .pipe( catchError(this.handleError<General>(`getGeneral id=${name}`)));
   }
+ 
+  getGenerals(searchTerm:string):Observable<General[]>
+  {
+      return this.http.get<General[]>(this.generalsURL+`?term=${searchTerm}`,this.httpOptions);
+  }
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
   
@@ -38,9 +43,5 @@ export class GeneralService {
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
-  }
-  getGenerals():Observable<General[]>
-  {
-    return this.http.get<General[]>(this.generalsURL);
   }
 }
