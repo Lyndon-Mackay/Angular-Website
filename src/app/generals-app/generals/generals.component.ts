@@ -37,10 +37,6 @@ export class GeneralsComponent implements OnInit {
     this.reverse = !this.reverse;
     this.generals.sort((a, b) => reversableComparitor(a, b, "Country", this.reverse));
   }
-  getGenerals(): void {
-    this.generalsSubscription = this.generalService.getGenerals("")
-      .subscribe(generals => this.generals = generals);
-  }
   nameClicked(): void {
     this.reverse = !this.reverse;
     this.generals.sort((a, b) => reversableComparitor(a, b, "Name", this.reverse));
