@@ -30,9 +30,9 @@ export class DateService {
     //hacky becaus i am not sure how to handle deletes with php
     this.http.post<customTime>(this.dateURL,daterequester,this.httpOptions).subscribe();
   }
-  getDates():Observable<customTime[]>
+  getDates(num:number):Observable<customTime[]>
   {
-    return this.http.get<customTime[]>(this.dateURL);
+    return this.http.get<customTime[]>(this.dateURL+`?num=${num}`);
   }
   getDateByID(id:string):Observable<customTime>
   {

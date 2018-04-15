@@ -22,7 +22,7 @@ export class DatesComponent implements OnInit {
       date => this.dates.push(date));
   }
   getDates() {
-    this.dateService.getDates().subscribe(
+    this.dateService.getDates(0).subscribe(
       dates => this.dates = dates);
   }
   goToAdd()
