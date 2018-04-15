@@ -30,7 +30,13 @@ export class GeneralsComponent implements OnInit {
 
       // switch to new search observable each time the term changes
       switchMap((term: string) => this.generalService.getGenerals(term)),
-    ).subscribe(generals => this.generals = generals);
+    ).subscribe(generals => this.generals = generals,
+      (e) => { console.log(e) 
+    let errorText = new HTMLParagraphElement();
+    errorText.textContent = "error retreiving data";
+    errorText.style.backgroundColor = "red";
+    document.getElementById("main-div").appendChild(errorText)
+    });
     this.searchTerms.next("");
   }
   countryClicked(): void {
