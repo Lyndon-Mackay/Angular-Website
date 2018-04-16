@@ -11,6 +11,8 @@ import { reversableComparitor } from '../../utilitymethods';
 export class DatesComponent implements OnInit {
 
   @Input() dates: customTime[];
+  page = 0;
+  maxPageNumber = 0;
   private reverse = false;
   constructor(private dateService: DateService) { }
 
@@ -22,9 +24,14 @@ export class DatesComponent implements OnInit {
       date => this.dates.push(date));
   }
   getDates() {
-    this.dateService.getDates(0).subscribe(
+
+    this.dateService.getDateCount().subscribe(num => this.maxPageNumber = Math.floor(num)
+    );
+
+    this.dateService.getDates(this.page).subscribe(
       dates => this.dates = dates);
   }
+
   goToAdd()
   {
     window.location.href += "/add"
@@ -36,7 +43,16 @@ export class DatesComponent implements OnInit {
     );
 
   }
-
+  nextPage()
+  {
+    this.page++;
+    this.getDates();
+  }
+  previousPage()
+  {
+    this.page--;
+    this.getDates();
+  }
   timeStampClicked():void{
     this.reverse = !this.reverse;
     this.dates = this.dates.sort((a, b) =>

@@ -7,8 +7,10 @@ import { customTime } from '../customtime';
 @Injectable()
 export class DateService {
 
-  private dateURL = "http://lyndonmackay.com/php/date.php"
+  private dateURL = "http://lyndonmackay.com/php/date.php";
+  private pageSize = 25.0;
   constructor(private http: HttpClient) { }
+
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -30,9 +32,14 @@ export class DateService {
     //hacky becaus i am not sure how to handle deletes with php
     this.http.post<customTime>(this.dateURL,daterequester,this.httpOptions).subscribe();
   }
+
+  getDateCount()
+  {
+    return this.http.get<number>(this.dateURL+`?id=0`);
+  }
   getDates(num:number):Observable<customTime[]>
   {
-    return this.http.get<customTime[]>(this.dateURL+`?num=${num}`);
+    return this.http.get<customTime[]>(this.dateURL+`?id=1&num=${num}`);
   }
   getDateByID(id:string):Observable<customTime>
   {
