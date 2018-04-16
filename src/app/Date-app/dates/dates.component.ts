@@ -14,7 +14,7 @@ export class DatesComponent implements OnInit {
   @Input() dates: customTime[];
   page = 0;
   maxPageNumber = 0;
-  private ascendingSort = true;
+  private ascendingSort = false;
   private subscription :Subscription
   constructor(private dateService: DateService) { }
 

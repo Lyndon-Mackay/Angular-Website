@@ -40,7 +40,7 @@ export class DateService {
   {
     return this.http.get<number>(this.dateURL+`?id=0`);
   }
-  getDates(num:number,sortedColumn = "ID",ascendedSort = true):Observable<customTime[]>
+  getDates(num:number,sortedColumn = "ID",ascendedSort = false):Observable<customTime[]>
   {
     let sortNum = ascendedSort ? 1 : 0;
     return this.http.get<customTime[]>(this.dateURL+`?id=1&num=${num}&sortfield=${sortedColumn}&sortorder=${sortNum}`);
