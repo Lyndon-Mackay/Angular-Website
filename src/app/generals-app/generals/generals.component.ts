@@ -23,7 +23,7 @@ export class GeneralsComponent implements OnInit {
   ngOnInit() {
     this.generalsSubscription= this.searchTerms.pipe(
       // wait 150ms after each keystroke before considering the term
-      debounceTime(150),
+      debounceTime(10),
 
       // ignore new term if same as previous term
       distinctUntilChanged(),
