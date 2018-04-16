@@ -4,6 +4,9 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 import { customTime } from '../customtime';
+
+import { dateRequest,dateRequestC} from "./date-service-utilities";
+
 @Injectable()
 export class DateService {
 
@@ -37,9 +40,10 @@ export class DateService {
   {
     return this.http.get<number>(this.dateURL+`?id=0`);
   }
-  getDates(num:number):Observable<customTime[]>
+  getDates(num:number,sortedColumn = "ID",ascendedSort = true):Observable<customTime[]>
   {
-    return this.http.get<customTime[]>(this.dateURL+`?id=1&num=${num}`);
+    let sortNum = ascendedSort ? 1 : 0;
+    return this.http.get<customTime[]>(this.dateURL+`?id=1&num=${num}&sortfield=${sortedColumn}&sortorder=${sortNum}`);
   }
   getDateByID(id:string):Observable<customTime>
   {
@@ -66,22 +70,5 @@ export class DateService {
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
-  }
-}
-enum dateRequest {
-  add,
-  getbyID,
-  delete,
-  addbyID
-
-}
-class dateRequestC {
-  private parameter :string[]
-  private dateR:dateRequest
-
-  constructor(parameter:string[],dateR:dateRequest)
-  {
-    this.parameter = parameter;
-    this.dateR = dateR;
   }
 }

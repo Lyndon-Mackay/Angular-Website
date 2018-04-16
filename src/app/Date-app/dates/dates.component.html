@@ -13,7 +13,6 @@
     <th>{{d.time}}</th>
    </tr>
   </table>
-  <p>Sorting currently limited on a per page basis will fix soon</p>
   <a *ngIf="page > 0" (click) = "previousPage()">previous page</a>
   <a *ngIf="page < maxPageNumber" (click) = "nextPage()">next page</a>
   <button (click) = "goToAdd()">add</button>

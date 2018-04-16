@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { DateService } from '../../Services/date.service';
 import { customTime } from '../../customtime';
 import { reversableComparitor } from '../../utilitymethods';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-dates',
@@ -13,7 +14,8 @@ export class DatesComponent implements OnInit {
   @Input() dates: customTime[];
   page = 0;
   maxPageNumber = 0;
-  private reverse = false;
+  private ascendingSort = true;
+  private subscription :Subscription
   constructor(private dateService: DateService) { }
 
   ngOnInit() {
@@ -28,7 +30,7 @@ export class DatesComponent implements OnInit {
     this.dateService.getDateCount().subscribe(num => this.maxPageNumber = Math.floor(num)
     );
 
-    this.dateService.getDates(this.page).subscribe(
+    this.subscription = this.dateService.getDates(this.page).subscribe(
       dates => this.dates = dates);
   }
 
@@ -37,11 +39,16 @@ export class DatesComponent implements OnInit {
     window.location.href += "/add"
   }
   idClicked(): void {
-    this.reverse = !this.reverse;
-    this.dates.sort((a, b) =>
-      reversableComparitor(a, b,"ID", this.reverse)
-    );
+    this.ascendingSort = !this.ascendingSort;
+    this.modifySubscription("ID");
+    
 
+  }
+  modifySubscription( column:string)
+  {
+    this.subscription.unsubscribe();
+    this.subscription = this.dateService.getDates(this.page,column,this.ascendingSort).
+    subscribe(dates => this.dates = dates);
   }
   nextPage()
   {
@@ -54,10 +61,9 @@ export class DatesComponent implements OnInit {
     this.getDates();
   }
   timeStampClicked():void{
-    this.reverse = !this.reverse;
-    this.dates = this.dates.sort((a, b) =>
-      reversableComparitor(a, b,"time", this.reverse)
-    );
+    this.ascendingSort = !this.ascendingSort;
+    this.modifySubscription("time");
+    
   }
   
 }
