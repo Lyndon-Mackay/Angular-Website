@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DateService } from '../../Services/date.service';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-date-add',
@@ -11,7 +11,7 @@ export class DateAddComponent implements OnInit {
 
   invalid = false;
   constructor(private dateService: DateService,
-    private location :Location) { }
+    private location: Location) { }
 
   ngOnInit() {
   }
@@ -24,18 +24,19 @@ export class DateAddComponent implements OnInit {
       return;
     }
     let valid = false;
-    this.dateService.addDateToID(id, Date.now()).subscribe(s => valid = s);
-    if (valid)
-    {
-    this.back();
-    }
-    else
-    {
-      this.invalid = true;
-    }
+    this.dateService.addDateToID(id, Date.now()).subscribe(s => {
+      valid = s;
+      if (valid) {
+        this.back();
+      }
+      else {
+        this.invalid = true;
+      }
+
+    });
   }
-  back()
-  {
+  back() {
     this.location.back();
+
   }
 }
